@@ -7,7 +7,7 @@ service: continueintegration
 provider:
   name: aws
   runtime: nodejs20.x
-
+  aws-region: us-east-1 
 functions:
   hello:
     handler: handler.hello
