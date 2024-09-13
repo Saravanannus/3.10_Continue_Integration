@@ -1,0 +1,17 @@
+name: CICD with serverless
+run-name: ${{ github.actor }} # A dynamic name for the workflow run, which shows up in the GitHub Actions interface. ${{ github.actor }} is a GitHub Actions expression that refers to the person who triggered the workflow. So if you push the code, it would say something like "YourUsername is doing CICD with Serverless".
+
+on: # This section defines the event that will trigger the workflow.
+ push: # The workflow will be triggered when there is a git push to a repository.
+  branches: [main , "*"] # The workflow will trigger on the main branch and any other branches (* is a wildcard, meaning any branch). This ensures that the pipeline runs on pushes to the main branch and any other branches.
+
+Jobs: # The jobs section defines individual jobs to be executed in parallel unless otherwise specified. Each job has its own set of steps.
+ install-dependencies: # The name of this job. It's arbitrary, but it suggests that this job will handle installing dependencies.
+    runs-on: ubuntu-latest # Specifies that the job will run on the latest version of the Ubuntu runner. This means the job will execute on a virtual machine with an Ubuntu OS.
+    
+    steps: # This section contains the individual steps that the job will perform.
+      - name: Check out repository code # Describes the step (arbitrary text).
+        uses: actions/checkout@v3 # A predefined GitHub Action that checks out the repository code, allowing subsequent steps to access the code in the repository.
+      - name: Run Installation of Dependencies Commands # Describes the step.
+        run: npm install # This command runs npm install, which installs all the dependencies listed in your package.json file. This is necessary to make sure that all required libraries are available before running tests or deploying
+        
