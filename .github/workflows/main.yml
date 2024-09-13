@@ -1,4 +1,4 @@
-name: main with Serverless
+name: CICD with Serverless
 run-name: ${{ github.actor }} is doing CICD with Serverless
 
 on:
