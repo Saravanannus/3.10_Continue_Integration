@@ -13,3 +13,13 @@ Jobs: # The jobs section defines individual jobs to be executed in parallel unle
            uses: actions/checkout@v3 # A predefined GitHub Action that checks out the repository code, allowing subsequent steps to access the code in the repository.
          - name: Run Installation of Dependencies Commands # Describes the step.
            run: npm install # This command runs npm install, which installs all the dependencies listed in your package.json file. This is necessary to make sure that all required libraries are available before running tests or deploying
+ unit-tests:
+    runs-on: ubuntu-latest
+    needs: install-dependencies
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Run Installation of Dependencies Commands
+        run: npm install
+      - name: Run Unit Tests
+        run: npm test
