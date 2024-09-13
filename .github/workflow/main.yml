@@ -7,7 +7,7 @@ run-name: ${{ github.actor }} is doing CICD with Serverless
 on: 
   # Trigger the workflow on push events to the main or any other branch
   push: 
-    branches: [main, "*"]
+    branches: [main, "**"]
 
 jobs:
   # This job installs dependencies
