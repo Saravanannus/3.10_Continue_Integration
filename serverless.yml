@@ -17,7 +17,15 @@ functions:
       - httpApi:
           path: /
           method: get
-
+resources:
+  Resources:
+    saraEmailSns:
+      Type: AWS::SNS::Topic
+      Properties:
+        TopicName: sara-email-topic
+        Subscription: 
+          - Protocol: "email"
+            Endpoint: "saravanannus@gmail.com"
 
 plugins:
   - serverless-offline
