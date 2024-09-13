@@ -22,7 +22,7 @@ resources:
     saraEmailSns:
       Type: AWS::SNS::Topic
       Properties:
-        TopicName: sara-email-topic
+        TopicName: sarace6-email-topic
         Subscription: 
           - Protocol: "email"
             Endpoint: "saravanannus@gmail.com"
