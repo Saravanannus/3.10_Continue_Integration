@@ -11,6 +11,8 @@ provider:
 functions:
   hello:
     handler: handler.hello
+    environment:
+      CLASS_NAME: "CE6_sara"
     events:
       - httpApi:
           path: /
